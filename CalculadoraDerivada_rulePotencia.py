@@ -5,7 +5,7 @@ def ler_input(mensagem, tipo=float):
         except ValueError:
             print("Entrada inválida. Digite um número válido.")
 
-def calcular_derivada():
+def derivada():
     grau = ler_input("Digite o grau do polinomio: ", int)
 
     if grau < 0:
@@ -17,24 +17,19 @@ def calcular_derivada():
     for i in range(grau, -1, -1):
         coeficiente = ler_input(f"Coeficiente de x^{i}: ", float)
         v.insert(0, coeficiente)
-        #Insira no "index" o "valor"
 
-    d = derivada(v)
+    d = []
 
-    print("Vetor: ", v)
+    for i in range(1, len(v)):
+        d.append(i * v[i])
+
+    if not d:
+        d = [0]
+
+    print("Vetor:", v)
     print("f(x)  =", formatar_polinomio(v))
     print("f'(x) =", formatar_polinomio(d))
 
-def derivada(v):
-    d = []
-    # d =     (12,2,3)
-    # indices (0,1,2)
-    
-    for i in range(1,len(v)):
-        d.append(i * v[i])
-    #   12 * 0; 2 * 1; 3 * 2;
-
-    return d if d else [0]
 
 def formatar_numero(n):
     if n == int(n):
@@ -90,7 +85,7 @@ def main():
 
         match opcao:
             case 1:
-                calcular_derivada()
+                derivada()
             case -1:
                 print("Encerrando o programa.")
             case _:
