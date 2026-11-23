@@ -1,6 +1,4 @@
 # Derivada de polinômio
-# Nome: <seu nome>
-# Data: <data>
 #
 # O polinômio fica guardado num vetor, e a posição de cada número
 # é o expoente do x:
